@@ -21,7 +21,14 @@ export default defineConfig(({ mode }) => ({
       nitro: {
         routeRules: {
           // SSR route should be server-rendered on each request (not prerendered)
-          '/ssr': { ssr: true },
+          '/ssr': {
+            ssr: true,
+            headers: {
+              'Cache-Control': 'no-store, must-revalidate',
+              'Pragma': 'no-cache',
+              'Expires': '0',
+            },
+          },
         },
       },
     }),
