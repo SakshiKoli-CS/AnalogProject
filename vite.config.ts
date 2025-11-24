@@ -13,7 +13,18 @@ export default defineConfig(({ mode }) => ({
     mainFields: ['module'],
   },
   plugins: [
-    analog(),
+    analog({
+      ssr: true,
+      prerender: {
+        routes: ['/'],
+      },
+      nitro: {
+        routeRules: {
+          // SSR route should be server-rendered on each request (not prerendered)
+          '/ssr': { ssr: true },
+        },
+      },
+    }),
     tailwindcss()
   ],
   test: {
