@@ -16,7 +16,7 @@ export default defineConfig(({ mode }) => ({
     analog({
       ssr: true,
       prerender: {
-        routes: ['/', '/isr'],
+        routes: ['/'],
       },
       nitro: {
         routeRules: {
@@ -29,11 +29,13 @@ export default defineConfig(({ mode }) => ({
               'Expires': '0',
             },
           },
-          // ISR route - statically generated with revalidation every 20 seconds
-          '/isr': {
-            isr: 20, // Revalidate every 20 seconds
+          // SSR API route with cache-control headers
+          '/ssr-api': {
+            ssr: true,
             headers: {
-              'Cache-Control': 'public, s-maxage=20, stale-while-revalidate=20',
+              'Cache-Control': 'no-store, must-revalidate',
+              'Pragma': 'no-cache',
+              'Expires': '0',
             },
           },
         },
