@@ -1,9 +1,4 @@
-// functions/user/[name].js
-
-
 export default function handler(request, response) {
-
-    response.send(`Hello ${request.params.name}!`);
-  
-  }
-  
+    const timestamp = new Date().toISOString();
+  response.send(`Hello ${request.params.name}! Timestamp: ${timestamp}`);
+}
