@@ -20,8 +20,8 @@
   ],
   "rewrites": [
     {
-      "source": "/products",
-      "destination": "/ssr-api",
+      "source": "/ssr",
+      "destination": "/ssg",
       "request": {
         "headers": {
           "x-api-key": "api-key"
