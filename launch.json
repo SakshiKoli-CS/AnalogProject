@@ -5,6 +5,18 @@
         "/about-us"
       ]
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/ssr-render",
+      "destination": "/ssr",
+      "statusCode": 308,
+      "response": {
+        "headers": {
+          "x-powered-by": "launch"
+        }
+      }
+    }
+  ]
 }
 
