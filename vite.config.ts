@@ -16,7 +16,7 @@ export default defineConfig(({ mode }) => ({
     analog({
       ssr: true,
       prerender: {
-        routes: ['/'],
+        routes: ['/', '/about-us'],
       },
       nitro: {
         routeRules: {
@@ -37,6 +37,10 @@ export default defineConfig(({ mode }) => ({
               'Pragma': 'no-cache',
               'Expires': '0',
             },
+          },
+          // CSR route - client-side rendering only (no SSR)
+          '/csr': {
+            ssr: false,
           },
         },
       },
