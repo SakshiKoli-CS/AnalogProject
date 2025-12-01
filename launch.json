@@ -17,22 +17,6 @@
         }
       }
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/ssr",
-      "destination": "/ssg",
-      "request": {
-        "headers": {
-          "x-api-key": "api-key"
-        }
-      },
-      "response": {
-        "headers": {
-          "x-powered-by": "launch"
-        }
-      }
-    }
   ]
 }
 
