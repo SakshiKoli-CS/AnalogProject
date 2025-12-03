@@ -42,6 +42,13 @@ export default defineConfig(({ mode }) => ({
           '/csr': {
             ssr: false,
           },
+          // ISR route - Incremental Static Regeneration (regenerates every 40 seconds)
+          '/isr': {
+            ssr: true,
+            headers: {
+              'Cache-Control': 'public, s-maxage=40, stale-while-revalidate=60',
+            },
+          },
         },
       },
     }),
