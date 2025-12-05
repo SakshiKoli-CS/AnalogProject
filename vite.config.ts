@@ -53,6 +53,14 @@ export default defineConfig(({ mode }) => ({
               'Cache-Control': 'public, s-maxage=40, stale-while-revalidate=60',
             },
           },
+          // Cache Purge route - demonstrates cache purge using CacheTags
+          '/cache-purge': {
+            ssr: true,
+            headers: {
+              'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=30',
+              'Cache-Tags': 'cachetest',
+            },
+          },
           // Static assets - Vite built files with content hashes (safe to use immutable)
           '/assets/**': {
             headers: {
