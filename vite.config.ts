@@ -49,6 +49,81 @@ export default defineConfig(({ mode }) => ({
               'Cache-Control': 'public, s-maxage=40, stale-while-revalidate=60',
             },
           },
+          // Static assets - CSS, JS, images (cache for 1 year with immutable)
+          '/assets/**': {
+            headers: {
+              'Cache-Control': 'public, s-maxage=31536000, immutable',
+            },
+          },
+          // CSS files
+          '/*.css': {
+            headers: {
+              'Cache-Control': 'public, s-maxage=31536000, immutable',
+            },
+          },
+          // JavaScript files
+          '/*.js': {
+            headers: {
+              'Cache-Control': 'public, s-maxage=31536000, immutable',
+            },
+          },
+          // Image files
+          '/*.jpg': {
+            headers: {
+              'Cache-Control': 'public, s-maxage=31536000, immutable',
+            },
+          },
+          '/*.jpeg': {
+            headers: {
+              'Cache-Control': 'public, s-maxage=31536000, immutable',
+            },
+          },
+          '/*.png': {
+            headers: {
+              'Cache-Control': 'public, s-maxage=31536000, immutable',
+            },
+          },
+          '/*.gif': {
+            headers: {
+              'Cache-Control': 'public, s-maxage=31536000, immutable',
+            },
+          },
+          '/*.svg': {
+            headers: {
+              'Cache-Control': 'public, s-maxage=31536000, immutable',
+            },
+          },
+          '/*.webp': {
+            headers: {
+              'Cache-Control': 'public, s-maxage=31536000, immutable',
+            },
+          },
+          '/*.ico': {
+            headers: {
+              'Cache-Control': 'public, s-maxage=31536000, immutable',
+            },
+          },
+          // Font files
+          '/*.woff': {
+            headers: {
+              'Cache-Control': 'public, s-maxage=31536000, immutable',
+            },
+          },
+          '/*.woff2': {
+            headers: {
+              'Cache-Control': 'public, s-maxage=31536000, immutable',
+            },
+          },
+          '/*.ttf': {
+            headers: {
+              'Cache-Control': 'public, s-maxage=31536000, immutable',
+            },
+          },
+          '/*.eot': {
+            headers: {
+              'Cache-Control': 'public, s-maxage=31536000, immutable',
+            },
+          },
         },
       },
     }),
