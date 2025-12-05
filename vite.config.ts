@@ -46,11 +46,12 @@ export default defineConfig(({ mode }) => ({
           '/csr-demo': {
             ssr: false,
           },
-          // ISR route - Incremental Static Regeneration (regenerates every 40 seconds)
+          // ISR route - Incremental Static Regeneration (regenerates every 60 seconds)
           '/isr': {
             ssr: true,
             headers: {
-              'Cache-Control': 'public, s-maxage=40, stale-while-revalidate=60',
+              'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=30',
+              'x-cache-tags': 'cachetest',
             },
           },
           // Static assets - Vite built files with content hashes (safe to use immutable)
