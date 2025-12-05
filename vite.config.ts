@@ -42,6 +42,10 @@ export default defineConfig(({ mode }) => ({
           '/csr': {
             ssr: false,
           },
+          // CSR Demo route - client-side rendering only (no SSR)
+          '/csr-demo': {
+            ssr: false,
+          },
           // ISR route - Incremental Static Regeneration (regenerates every 40 seconds)
           '/isr': {
             ssr: true,
@@ -49,79 +53,79 @@ export default defineConfig(({ mode }) => ({
               'Cache-Control': 'public, s-maxage=40, stale-while-revalidate=60',
             },
           },
-          // Static assets - CSS, JS, images (cache for 1 year with immutable)
+          // Static assets - Vite built files with content hashes (safe to use immutable)
           '/assets/**': {
             headers: {
               'Cache-Control': 'public, s-maxage=31536000, immutable',
             },
           },
-          // CSS files
+          // CSS files (only if they have content hashes, otherwise remove immutable)
           '/*.css': {
             headers: {
-              'Cache-Control': 'public, s-maxage=31536000, immutable',
+              'Cache-Control': 'public, s-maxage=31536000',
             },
           },
-          // JavaScript files
+          // JavaScript files (only if they have content hashes, otherwise remove immutable)
           '/*.js': {
             headers: {
-              'Cache-Control': 'public, s-maxage=31536000, immutable',
+              'Cache-Control': 'public, s-maxage=31536000',
             },
           },
-          // Image files
+          // Image files (no immutable - files can be updated)
           '/*.jpg': {
             headers: {
-              'Cache-Control': 'public, s-maxage=31536000, immutable',
+              'Cache-Control': 'public, s-maxage=31536000',
             },
           },
           '/*.jpeg': {
             headers: {
-              'Cache-Control': 'public, s-maxage=31536000, immutable',
+              'Cache-Control': 'public, s-maxage=31536000',
             },
           },
           '/*.png': {
             headers: {
-              'Cache-Control': 'public, s-maxage=31536000, immutable',
+              'Cache-Control': 'public, s-maxage=31536000',
             },
           },
           '/*.gif': {
             headers: {
-              'Cache-Control': 'public, s-maxage=31536000, immutable',
+              'Cache-Control': 'public, s-maxage=31536000',
             },
           },
           '/*.svg': {
             headers: {
-              'Cache-Control': 'public, s-maxage=31536000, immutable',
+              'Cache-Control': 'public, s-maxage=31536000',
             },
           },
           '/*.webp': {
             headers: {
-              'Cache-Control': 'public, s-maxage=31536000, immutable',
+              'Cache-Control': 'public, s-maxage=31536000',
             },
           },
           '/*.ico': {
             headers: {
-              'Cache-Control': 'public, s-maxage=31536000, immutable',
+              'Cache-Control': 'public, s-maxage=31536000',
             },
           },
-          // Font files
+          // Font files (no immutable - files can be updated)
           '/*.woff': {
             headers: {
-              'Cache-Control': 'public, s-maxage=31536000, immutable',
+              'Cache-Control': 'public, s-maxage=31536000',
             },
           },
           '/*.woff2': {
             headers: {
-              'Cache-Control': 'public, s-maxage=31536000, immutable',
+              'Cache-Control': 'public, s-maxage=31536000',
             },
           },
           '/*.ttf': {
             headers: {
-              'Cache-Control': 'public, s-maxage=31536000, immutable',
+              'Cache-Control': 'public, s-maxage=31536000',
             },
           },
           '/*.eot': {
             headers: {
-              'Cache-Control': 'public, s-maxage=31536000, immutable',
+              'Cache-Control': 'public, s-maxage=31536000',
             },
           },
         },
